@@ -4,6 +4,7 @@ services:
 
   redis:
     image: redis:5-stretch
+    container_name: redis
     ports:
       - '6379:6379'
     volumes:
@@ -11,6 +12,7 @@ services:
 
   app:
     build: .
+    container_name: app
     ports:
       - '3000:3000'
     volumes:
@@ -20,6 +22,7 @@ services:
 
   sidekiq:
     build: .
+    container_name: sidekiq
     command: bundle exec sidekiq
     volumes:
       - .:/app
