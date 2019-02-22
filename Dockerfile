@@ -7,7 +7,13 @@ MAINTAINER DevOps <andres@parrolabs.com>
 # - nodejs: Compile assets
 # - libpq-dev: Communicate with postgres through the postgres gem
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs default-libmysqlclient-dev libpq-dev
+      build-essential nodejs default-libmysqlclient-dev libpq-dev curl gnupg
+
+
+CMD curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg |  apt-key add -
+CMD echo "deb https://dl.yarnpkg.com/debian/ stable main" |  tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update
+RUN apt-get install yarn -y
 
 # Set an environment variable to store where the app is installed to inside
 # of the Docker image. The name matches the project name out of convention only.
