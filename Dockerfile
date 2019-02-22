@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -qq -y --no-install-recommends \
 
 # Set an environment variable to store where the app is installed to inside
 # of the Docker image. The name matches the project name out of convention only.
-ENV INSTALL_PATH /rails-blog
+ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 
 # This sets the context of where commands will be ran in and is documented
