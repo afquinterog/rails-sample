@@ -38,7 +38,7 @@ RUN bundle install --binstubs
 COPY . .
 
 # Provide a dummy DATABASE_URL to Rails so it can pre-compile assets.
-RUN bundle exec rake RAILS_ENV=development DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname SECRET_TOKEN=dummytoken assets:precompile REDIS_URL=redis://redis.local
+RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname SECRET_TOKEN=dummytoken assets:precompile REDIS_URL=redis://redis.local
 
 # Ensure the static assets are exposed through a volume so that nginx can read
 # in these values later.
