@@ -36,7 +36,7 @@ RUN bundle exec rake RAILS_ENV=production DATABASE_URL=postgresql://user:pass@12
 
 # Ensure the static assets are exposed through a volume so that nginx can read
 # in these values later.
-VOLUME ["public"]
+VOLUME ["$INSTALL_PATH/public"]
 
 # The default command that gets ran will be to start the Puma server.
 CMD bundle exec puma -C config/puma.rb
