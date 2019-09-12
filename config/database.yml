@@ -13,9 +13,10 @@
 
 default: &default
   adapter: mysql2
-  host: staging-database.cpjx7vbjewe6.us-east-1.rds.amazonaws.com
+  #host: staging-database.cpjx7vbjewe6.us-east-1.rds.amazonaws.com
+  host: <%= ENV.fetch('DB_HOST', '') %>
   #port: <%= ENV.fetch('MYSQL_PORT', 3306) %>
-  port: 3306 
+  port: 3306
   encoding: utf8mb4
   #username: <%= ENV.fetch('MYSQL_USER', 'staging_user') %>
   username: staging_user
